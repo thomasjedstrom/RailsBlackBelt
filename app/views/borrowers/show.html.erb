@@ -1,0 +1,38 @@
+<div class="header">
+	<div class="row">
+		<span>Name:</span>
+		<span><%= @borrower.first_name %> <%= @borrower.last_name %></span>
+	</div>
+	<div class="row">
+		<span>Amount Need:</span>
+		<span><b>$<%= @borrower.money %></b></span>
+	</div>
+	<div class="row">
+		<span>Amount Raised:</span>
+		<span><b>$<%= @borrower.raised %></b></span>
+	</div>
+</div>
+
+
+
+<div class="help">
+	<h1>List of people who lend you money:</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Amount Lent</th>
+		</tr>
+		<% if @helper %>
+			<% @helper.each do |lender| %>
+				<% if lender.history.where(:borrower_id=>current_user.id).sum(:amount) >0 %>
+					<tr>
+						<td><%= lender.first_name %> <%= lender.last_name %></td>
+						<td><%= lender.email %></td>
+						<td><%= lender.history.where(:borrower_id=>current_user.id).sum(:amount) %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% end %>
+	</table>
+</div>
