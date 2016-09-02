@@ -22,14 +22,21 @@
 			<th>Action</th>
 		</tr>
 		<% if @help %>
-			<% @help.borrowers.each do |borrower| %>
+			<% @help.each do |borrower| %>
 				<tr>
 					<td><%= borrower.first_name %> <%= borrower.last_name %></td>
 					<td><%= borrower.purpose %></td>
 					<td><%= borrower.description %></td>
-					<td>not sure here</td>
-					<td>not sure here</td>
-					<td>not sure here</td>
+					<td><%= borrower.money %></td>
+					<td><%= borrower.raised %></td>
+					<td>
+						<form action="/lend" method="post">
+							<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+							<input type="hidden" name="params[borrower_id]" value="<%= borrower.id %>">
+							<input type="number" min="0" step="1" name="params[money]" value="25"><br>
+							<input type="submit" value="Lend">
+						</form>
+					</td>
 				</tr>
 			<% end %>
 		<% end %>
@@ -48,14 +55,14 @@
 			<th>Amount Lent</th>
 		</tr>
 		<% if @helped %>
-			<% @helped.borrowers.each do |borrower| %>
+			<% @helped.each do |borrower| %>
 				<tr>
 					<td><%= borrower.first_name %> <%= borrower.last_name %></td>
 					<td><%= borrower.purpose %></td>
 					<td><%= borrower.description %></td>
-					<td>not sure here</td>
-					<td>not sure here</td>
-					<td>not sure here</td>
+					<td><%= borrower.money %></td>
+					<td><%= borrower.raised %></td>
+					<td><%= @lender.history.where(:borrower_id=>borrower.id).sum(:amount) %></td>
 				</tr>
 			<% end %>
 		<% end %>

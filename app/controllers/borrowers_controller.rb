@@ -13,12 +13,7 @@ class BorrowersController < ApplicationController
 
 	def show
 		@borrower = current_user
-		puts '----------'
-		puts current_user
-		puts @borrower
-		puts '----------'
-		@help = Borrower.all
-		@helped = Borrower.all
+		@helper = Lender.all
 	end
 
 

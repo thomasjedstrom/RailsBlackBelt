@@ -12,9 +12,29 @@ class LendersController < ApplicationController
 	end
 
 	def show
-		@lender = Lender.find_by_email(current_user)
-		@help = Borrower.all
-		@helped = Borrower.all
+		@lender = current_user
+		@help = Borrower.all.where(:money > :raised)
+		@helped = current_user.borrowers.group(:id)
+	end
+
+	def lend
+		lender = current_user
+		lender.money -= params[:params][:money].to_i
+
+		borrower = Borrower.find(params[:params][:borrower_id])
+		borrower.raised += params[:params][:money].to_i
+
+		history = lender.history.new
+		history.amount = params[:params][:money]
+		history.borrower = borrower
+		history.lender = lender
+
+		history.save
+		borrower.updating_password = false
+		borrower.save
+		lender.save
+
+		redirect_to lender_show_path(:id => current_user.id)
 	end
 
 

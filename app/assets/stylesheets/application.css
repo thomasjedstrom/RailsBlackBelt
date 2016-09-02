@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+body{
+	max-width: 1000px;
+	margin: auto;
+}
+
+
 
 table{
 	border: 3px solid black;
@@ -37,3 +43,20 @@ td>*{
 }
 tr:nth-child(even) {background-color: #f2f2f2}
 tr:hover {background-color: #ddd}
+
+.right{
+	float: right;
+}
+
+.row{
+	max-width: 500px;
+}
+.row span:first-child{
+	display: inline-block;
+	width: 150px;
+	margin: 25px 20px 0px 0px;
+	text-align: right;
+}
+span:nth-child(2){
+	text-align: left;
+}

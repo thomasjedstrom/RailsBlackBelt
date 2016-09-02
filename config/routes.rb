@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'online_lending/borrower/create_user' => 'borrowers#create_user', as: :borrower_create
   get 'online_lending/borrower/:id' => 'borrowers#show', as: :borrower_show
 
+  post '/lend' => 'lenders#lend'
 
 
 

@@ -2,9 +2,11 @@ class HomeController < ApplicationController
 
 	def index
 		if user_signed_in?
-			return nil
-		else
-			redirect_to online_lending_login_path
+			if current_user.class == Lender
+				redirect_to lender_show_path(:id => current_user.id)
+			else
+				redirect_to borrower_show_path(:id => current_user.id)
+			end
 		end
 	end
 
