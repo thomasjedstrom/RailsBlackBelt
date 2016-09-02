@@ -6,7 +6,7 @@
 		</ul>
 	<% end %>
 <% end %>
-<form action="/lender/create_user" method="post">
+<form action="/online_lending/lender/create_user" method="post">
 	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
 
 	<label for="first_name">First Name:</label>
@@ -38,7 +38,7 @@
 		</ul>
 	<% end %>
 <% end %>
-<form action="/borrower/create_user" method="post">
+<form action="/online_lending/borrower/create_user" method="post">
 	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
 
 	<label for="first_name">First Name:</label>

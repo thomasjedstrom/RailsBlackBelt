@@ -3,7 +3,7 @@ class LendersController < ApplicationController
 	def create_user
 	  	@lender = Lender.new(lender_params)
 		if @lender.save()
-			session[:user_id] = @lender.id
+			session[:user_id] = @lender.email
 			redirect_to lender_show_path(:id => @lender.id)
 		else
 			flash[:reg_lender_errors] = @lender.errors.full_messages
@@ -12,7 +12,9 @@ class LendersController < ApplicationController
 	end
 
 	def show
-		@lender = current_user
+		@lender = Lender.find_by_email(current_user)
+		@help = Borrower.all
+		@helped = Borrower.all
 	end
 
 

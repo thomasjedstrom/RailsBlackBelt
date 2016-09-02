@@ -1,1 +1,63 @@
-<h1>You MADE IT!!! FUCK YEAH</h1>
+<div class="header">
+	<div class="row">
+		<p>Name:</p>
+		<p><%= @lender.first_name %> <%= @lender.last_name %></p>
+	</div>
+	<div class="row">
+		<p>Account Balance:</p>
+		<p><b>$<%= @lender.money %></b></p>
+	</div>
+</div>
+
+
+<div class="help">
+	<h1>List of people in need of help:</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Need Money for</th>
+			<th>Reason for Loan</th>
+			<th>Amount Needed</th>
+			<th>Amount Raised</th>
+			<th>Action</th>
+		</tr>
+		<% if @help %>
+			<% @help.borrowers.each do |borrower| %>
+				<tr>
+					<td><%= borrower.first_name %> <%= borrower.last_name %></td>
+					<td><%= borrower.purpose %></td>
+					<td><%= borrower.description %></td>
+					<td>not sure here</td>
+					<td>not sure here</td>
+					<td>not sure here</td>
+				</tr>
+			<% end %>
+		<% end %>
+	</table>
+</div>
+
+<div class="help">
+	<h1>List of People you lend money to:</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Need Money for</th>
+			<th>Reason for Loan</th>
+			<th>Amount Needed</th>
+			<th>Amount Raised</th>
+			<th>Amount Lent</th>
+		</tr>
+		<% if @helped %>
+			<% @helped.borrowers.each do |borrower| %>
+				<tr>
+					<td><%= borrower.first_name %> <%= borrower.last_name %></td>
+					<td><%= borrower.purpose %></td>
+					<td><%= borrower.description %></td>
+					<td>not sure here</td>
+					<td>not sure here</td>
+					<td>not sure here</td>
+				</tr>
+			<% end %>
+		<% end %>
+	</table>
+</div>

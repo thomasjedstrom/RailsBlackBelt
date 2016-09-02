@@ -14,7 +14,13 @@ class ApplicationController < ActionController::Base
   	end
 
 	def current_user
-		User.find(session[:user_id]) if session[:user_id]
+		return unless session[:user_id]
+		if lenderid = Lender.find_by_email(session[:user_id])
+			Lender.find(lenderid)
+		else 
+			borrowerid = Borrower.find_by_email(session[:user_id])
+			Borrower.find(borrowerid)
+		end
 	end
 
 	def user_signed_in?
