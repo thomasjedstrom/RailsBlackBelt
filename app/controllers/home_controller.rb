@@ -7,6 +7,8 @@ class HomeController < ApplicationController
 			else
 				redirect_to borrower_show_path(:id => current_user.id)
 			end
+		else
+			redirect_to online_lending_login_path
 		end
 	end
 
