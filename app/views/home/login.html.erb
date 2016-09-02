@@ -1,7 +1,7 @@
 <h1>Login</h1>
 
-<% if flash[:login_errors] %>
-	<% flash[:login_errors].each do |msg| %>
+<% if flash[:login_error] %>
+	<% flash[:login_error].each do |msg| %>
 		<ul>
 			<li class="errors"><%= msg %></li>
 		</ul>
