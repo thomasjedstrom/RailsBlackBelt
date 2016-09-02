@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  lender: one
+  borrower: one
+  historyable: one
+  historyable_type: Historyable
+
+two:
+  amount: 1
+  lender: two
+  borrower: two
+  historyable: two
+  historyable_type: Historyable

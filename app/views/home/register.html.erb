@@ -1,0 +1,68 @@
+<h1>Lender</h1>
+<% if flash[:reg_lender_errors] %>
+	<% flash[:reg_lender_errors].each do |msg| %>
+		<ul>
+			<li class="errors"><%= msg %></li>
+		</ul>
+	<% end %>
+<% end %>
+<form action="/lender/create_user" method="post">
+	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+	<label for="first_name">First Name:</label>
+	<input type="text" name="user[first_name]"><br>
+
+	<label for="last_name">Last Name:</label>
+	<input type="text" name="user[last_name]"><br>
+
+	<label for="email">Email:</label>
+	<input type="text" name="user[email]"><br>
+
+	<label for="password">Password:</label>
+	<input type="password" name="user[password]"><br>
+
+	<label for="money">Money:</label>
+	<input type="number" min="0" step="1" name="user[money]"><br>
+
+	<%= link_to 'Already a member?', online_lending_login_path %>
+
+	<input type="submit" value="Register"> 
+</form>
+
+
+<h1>Borrower</h1>
+<% if flash[:reg_borrower_errors] %>
+	<% flash[:reg_borrower_errors].each do |msg| %>
+		<ul>
+			<li class="errors"><%= msg %></li>
+		</ul>
+	<% end %>
+<% end %>
+<form action="/borrower/create_user" method="post">
+	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+	<label for="first_name">First Name:</label>
+	<input type="text" name="user[first_name]"><br>
+
+	<label for="last_name">Last Name:</label>
+	<input type="text" name="user[last_name]"><br>
+
+	<label for="email">Email:</label>
+	<input type="text" name="user[email]"><br>
+
+	<label for="password">Password:</label>
+	<input type="password" name="user[password]"><br>
+
+	<label for="purpose">Need Money For:</label>
+	<input type="text" name="user[purpose]"><br>
+
+	<label for="description">Description:</label>
+	<textarea name="user[description]" cols="30" rows="5"></textarea>
+
+	<label for="money">Amount Needed:</label>
+	<input type="number" min="0" step="1" name="user[money]"><br>
+
+	<%= link_to 'Already a member?', online_lending_login_path %>
+
+	<input type="submit" value="Register"> 
+</form>

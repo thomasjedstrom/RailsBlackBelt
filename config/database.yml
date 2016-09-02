@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+
+development:
+  <<: *default
+  database: RailsBlackBelt_development
+
+test:
+  <<: *default
+  database: RailsBlackBelt_test
+
+production:
+  <<: *default
+  database: RailsBlackBelt_production
+  username: RailsBlackBelt
+  password: <%= ENV['RAILSBLACKBELT_DATABASE_PASSWORD'] %>
