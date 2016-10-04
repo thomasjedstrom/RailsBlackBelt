@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
+	after_filter :set_header_for_iframe
 
 	def require_correct_user
 		user = User.find(params[:id])
@@ -30,5 +31,10 @@ class ApplicationController < ActionController::Base
 
 	helper_method :current_user
 
+
+	private
+	def set_header_for_iframe
+		response.headers.delete "X-Frame-Options" 
+	end
 
 end

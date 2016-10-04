@@ -1,27 +1,27 @@
-<div class="header">
+<div id="header">
 	<div class="row">
-		<span>Name:</span>
-		<span><%= @borrower.first_name %> <%= @borrower.last_name %></span>
+		<p>Name:</p>
+		<p><%= @borrower.first_name %> <%= @borrower.last_name %></p>
 	</div>
 	<div class="row">
-		<span>Amount Need:</span>
-		<span><b>$<%= @borrower.money %></b></span>
+		<p>Amount Need:</p>
+		<p><b>$<%= @borrower.money %></b></p>
 	</div>
 	<div class="row">
-		<span>Amount Raised:</span>
-		<span><b>$<%= @borrower.raised %></b></span>
+		<p>Amount Raised:</p>
+		<p><b>$<%= @borrower.raised %></b></p>
 	</div>
 </div>
 
 
 
-<div class="help">
-	<h1>List of people who lend you money:</h1>
+<div class="help fw">
+	<h1>Your Lenders:</h1>
 	<table>
 		<tr>
-			<th>Name</th>
-			<th>Email</th>
-			<th>Amount Lent</th>
+			<th class="name">Name</th>
+			<th class="email">Email</th>
+			<th class="lent">Amount Lent</th>
 		</tr>
 		<% if @helper %>
 			<% @helper.each do |lender| %>

@@ -1,24 +1,29 @@
-<h1>Login</h1>
-
-<% if flash[:login_error] %>
-	<% flash[:login_error].each do |msg| %>
-		<ul>
-			<li class="errors"><%= msg %></li>
-		</ul>
-	<% end %>
-<% end %>
-
-<form action="/online_lending/login_user" method="post">
+<form action="/online_lending/login_user" method="post" class="sessionForm">
 	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
 
-	<label for="email">Email</label>
-	<input type="text" name="email"><br>
+	<h1>Login</h1>
 
-	<label for="password">Password</label>
-	<input type="password" name="password"><br>
+	<% if flash[:login_error] %>
+		<% flash[:login_error].each do |msg| %>
+			<ul>
+				<li class="error"><%= msg %></li>
+			</ul>
+		<% end %>
+	<% end %>
 
-	<%= link_to 'Click here to register', online_lending_register_path %>
+	<div class="row">
+		<label for="email">Email:</label>
+		<input type="text" name="email"><br>
+	</div>
 
-	<input type="submit" value="Login"> 
+	<div class="row">
+		<label for="password">Password:</label>
+		<input type="password" name="password"><br>
+	</div>
+
+	<div class="row">
+		<%= link_to 'Click here to register', online_lending_register_path %>
+		<input type="submit" value="Login" class="btn"> 
+	</div>
 
 </form>

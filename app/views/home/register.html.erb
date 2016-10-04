@@ -1,68 +1,100 @@
-<h1>Lender</h1>
-<% if flash[:reg_lender_errors] %>
-	<% flash[:reg_lender_errors].each do |msg| %>
-		<ul>
-			<li class="errors"><%= msg %></li>
-		</ul>
-	<% end %>
-<% end %>
-<form action="/online_lending/lender/create_user" method="post">
+<h1 class="fw">Online Lending App</h1>
+
+<form action="/online_lending/lender/create_user" method="post" class="sessionForm">
 	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
 
-	<label for="first_name">First Name:</label>
-	<input type="text" name="user[first_name]"><br>
+	<h1>Lender</h1>
 
-	<label for="last_name">Last Name:</label>
-	<input type="text" name="user[last_name]"><br>
+	<% if flash[:reg_lender_errors] %>
+		<% flash[:reg_lender_errors].each do |msg| %>
+			<ul>
+				<li class="error"><%= msg %></li>
+			</ul>
+		<% end %>
+	<% end %>
 
-	<label for="email">Email:</label>
-	<input type="text" name="user[email]"><br>
+	<div class="row">
+		<label for="first_name">First Name:</label>
+		<input type="text" name="user[first_name]"><br>
+	</div>
 
-	<label for="password">Password:</label>
-	<input type="password" name="user[password]"><br>
+	<div class="row">
+		<label for="last_name">Last Name:</label>
+		<input type="text" name="user[last_name]"><br>
+	</div>
 
-	<label for="money">Money:</label>
-	<input type="number" min="0" step="1" name="user[money]"><br>
+	<div class="row">
+		<label for="email">Email:</label>
+		<input type="text" name="user[email]"><br>
+	</div>
 
-	<%= link_to 'Already a member?', online_lending_login_path %>
+	<div class="row">
+		<label for="password">Password:</label>
+		<input type="password" name="user[password]"><br>
+	</div>
 
-	<input type="submit" value="Register"> 
+	<div class="row">
+		<label for="money">Money:</label>
+		<input type="number" min="0" step="1" name="user[money]"><br>
+	</div>
+
+	<div class="row">
+		<%= link_to 'Already a member?', online_lending_login_path %>
+		<input type="submit" value="Register" class="btn"> 
+	</div>
 </form>
 
 
-<h1>Borrower</h1>
-<% if flash[:reg_borrower_errors] %>
-	<% flash[:reg_borrower_errors].each do |msg| %>
-		<ul>
-			<li class="errors"><%= msg %></li>
-		</ul>
-	<% end %>
-<% end %>
-<form action="/online_lending/borrower/create_user" method="post">
+<form action="/online_lending/borrower/create_user" method="post" class="sessionForm">
 	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
 
-	<label for="first_name">First Name:</label>
-	<input type="text" name="user[first_name]"><br>
+	<h1>Borrower</h1>
 
-	<label for="last_name">Last Name:</label>
-	<input type="text" name="user[last_name]"><br>
+	<% if flash[:reg_borrower_errors] %>
+		<% flash[:reg_borrower_errors].each do |msg| %>
+			<ul>
+				<li class="error"><%= msg %></li>
+			</ul>
+		<% end %>
+	<% end %>
 
-	<label for="email">Email:</label>
-	<input type="text" name="user[email]"><br>
+	<div class="row">
+		<label for="first_name">First Name:</label>
+		<input type="text" name="user[first_name]"><br>
+	</div>
 
-	<label for="password">Password:</label>
-	<input type="password" name="user[password]"><br>
+	<div class="row">
+		<label for="last_name">Last Name:</label>
+		<input type="text" name="user[last_name]"><br>
+	</div>
 
-	<label for="purpose">Need Money For:</label>
-	<input type="text" name="user[purpose]"><br>
+	<div class="row">
+		<label for="email">Email:</label>
+		<input type="text" name="user[email]"><br>
+	</div>
 
-	<label for="description">Description:</label>
-	<textarea name="user[description]" cols="30" rows="5"></textarea>
+	<div class="row">
+		<label for="password">Password:</label>
+		<input type="password" name="user[password]"><br>
+	</div>
 
-	<label for="money">Amount Needed:</label>
-	<input type="number" min="0" step="1" name="user[money]"><br>
+	<div class="row">
+		<label for="purpose">Need Money For:</label>
+		<input type="text" name="user[purpose]"><br>
+	</div>
 
-	<%= link_to 'Already a member?', online_lending_login_path %>
+	<div class="row">
+		<label for="description">Description:</label>
+		<textarea name="user[description]" cols="30" rows="5"></textarea>
+	</div>
 
-	<input type="submit" value="Register"> 
+	<div class="row">
+		<label for="money">Amount Needed:</label>
+		<input type="number" min="0" step="1" name="user[money]"><br>
+	</div>
+
+	<div class="row">
+		<%= link_to 'Already a member?', online_lending_login_path %>
+		<input type="submit" value="Register" class="btn"> 
+	</div>
 </form>

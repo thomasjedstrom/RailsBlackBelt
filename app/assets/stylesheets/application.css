@@ -13,21 +13,122 @@
  *= require_tree .
  *= require_self
  */
-body{
-	max-width: 1000px;
+
+/*GLOBAL*/
+*{
+	font-family: sans-serif;
+}
+#wrapper{
+	max-width: 1200px;
 	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+#navbar{
+	width: 100%;
 }
 
 
 
+/*HELPERS*/
+.btn{
+	border-radius: 0px;
+	border: 3px solid black;
+	color: black;
+	background: white;
+	box-shadow: 3px 3px 0px black;
+	margin: 5px 10px;
+	text-decoration: none;
+	font-size: 1em;
+	display: inline-block;
+	padding: 3px 5px;
+}
+.fw{
+	min-width: 100%;
+}
+.right{
+	float: right;
+}
+
+
+
+/*ERRORS*/
+.error{
+	margin: auto;
+	margin-top: 15px;
+	max-width: 350px;
+	list-style: none;
+	color: red;
+	background: pink;
+	border: 3px solid red;
+	border-radius: 5px;
+	padding: 4px;
+	line-height: 2.5em;
+}
+ul{
+	margin: 0px;
+	display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+}
+
+
+
+/*FORMS*/
+.sessionForm{
+	max-width: 500px;
+	margin: auto;
+	margin-top: 100px;
+	border: 3px solid black;
+	box-shadow: 0px 5px 5px black;
+}
+h1{
+	text-align: center;
+	text-decoration: underline;
+}
+input, textarea{
+	border: 3px solid black;
+}
+label{
+	float: left;
+	margin-left: 20px;
+	font-size: 1.2em;
+}
+/*input:not([type="submit"]){*/
+input{
+	border: 3px solid black;
+	width: 250px;	
+	height: 1.8em;
+	margin-left: 5px;
+}
+input[type="submit"]{
+	width: auto;
+}
+textarea:focus, input:focus {
+	border: 2px solid green;
+}
+.row{
+	text-align: right;
+	margin: 10px 20px 0px 0px;
+	max-width: 500px;
+}
+
+
+
+
+/*TABLE*/
 table{
 	border: 3px solid black;
 	border-collapse: collapse;
-	margin-bottom: 50px;
 }
 th{
 	background: gray;
 	border-right: 3px solid black;
+	text-align: center;
 }
 tr:nth-child(even){
 	background-color: lightgray;
@@ -41,22 +142,63 @@ td{
 td>*{
 	margin: 0px 15px;
 }
-tr:nth-child(even) {background-color: #f2f2f2}
-tr:hover {background-color: #ddd}
-
-.right{
-	float: right;
+tr:nth-child(even){
+	background-color: #f2f2f2
+}
+tr:hover{
+	background-color: #ddd
 }
 
-.row{
-	max-width: 500px;
+
+/*Lender Dashboard*/
+#header{
+	width: 400px;
+	border: 3px solid black;
+	box-shadow: 0px 5px 5px black;
+	margin-left: 150px;
 }
-.row span:first-child{
+.row p{
 	display: inline-block;
-	width: 150px;
-	margin: 25px 20px 0px 0px;
-	text-align: right;
+	font-size: 1.1em;
 }
-span:nth-child(2){
+.row p:nth-child(even){
+	width: 150px;
 	text-align: left;
+	margin-left: 20px;
+}
+.help{
+	margin: 50px 0px;
+}
+.help>table{
+	margin: auto;
+}
+.name{
+	min-width: 12em;
+}
+.need{
+	min-width: 10em;
+}
+.reason{
+	min-width: 10em;
+}
+.needed{
+	min-width: 8em;
+}
+.raised{
+	min-width: 8em;
+}
+.action{
+	min-width: 10em;
+}
+.lent{
+	min-width: 10em;
+}
+.loanInput{
+	width: 3em;
+	text-align: center;
+}
+
+/*Borrower Dashboard*/
+.email{
+	min-width: 15em;
 }
