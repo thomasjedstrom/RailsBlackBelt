@@ -27,13 +27,13 @@
 					<td><%= borrower.first_name %> <%= borrower.last_name %></td>
 					<td><%= borrower.purpose %></td>
 					<td><%= borrower.description %></td>
-					<td><%= borrower.money %></td>
-					<td><%= borrower.raised %></td>
+					<td>$<%= borrower.money %></td>
+					<td>$<%= borrower.raised %></td>
 					<td>
 						<form action="/lend" method="post">
 							<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
 							<input type="hidden" name="params[borrower_id]" value="<%= borrower.id %>">
-							<input type="number" min="0" step="1" name="params[money]" value="25" class="loanInput">
+							$<input type="number" min="0" step="1" name="params[money]" value="25" class="loanInput">
 							<input type="submit" value="Lend" class="btn">
 						</form>
 					</td>
@@ -60,9 +60,9 @@
 					<td><%= borrower.first_name %> <%= borrower.last_name %></td>
 					<td><%= borrower.purpose %></td>
 					<td><%= borrower.description %></td>
-					<td><%= borrower.money %></td>
-					<td><%= borrower.raised %></td>
-					<td><%= @lender.history.where(:borrower_id=>borrower.id).sum(:amount) %></td>
+					<td>$<%= borrower.money %></td>
+					<td>$<%= borrower.raised %></td>
+					<td>$<%= @lender.history.where(:borrower_id=>borrower.id).sum(:amount) %></td>
 				</tr>
 			<% end %>
 		<% end %>

@@ -29,7 +29,7 @@
 					<tr>
 						<td><%= lender.first_name %> <%= lender.last_name %></td>
 						<td><%= lender.email %></td>
-						<td><%= lender.history.where(:borrower_id=>current_user.id).sum(:amount) %></td>
+						<td>$<%= lender.history.where(:borrower_id=>current_user.id).sum(:amount) %></td>
 					</tr>
 				<% end %>
 			<% end %>
